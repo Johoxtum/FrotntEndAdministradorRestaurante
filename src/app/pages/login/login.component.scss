@@ -1,0 +1,108 @@
+h1{
+  font-size: 28px;
+  position: absolute;
+  top: 0;
+  margin-left: 80px;
+}
+h2{
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  color: white;
+
+}
+body{
+  background-color: grey;
+  gap: 60px;
+  padding: 40px;
+}
+p{
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+  color: white;
+}
+
+.logo{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 90px;
+  width: 200px;
+}
+
+.input-text{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+  gap: 24px;
+  margin-bottom: 24px;
+  position: relative;
+  top: -70px;
+  .input-email{
+    border-radius: 6px;
+    width: 360px;
+    height: 36px;
+  }
+  .input-password{
+    border-radius: 6px;
+    width: 360px;
+    height: 36px;
+  }
+}
+
+.button-container{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  top: -70px;
+  .iniciar{
+    width: 194px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: black;
+    color: white;
+
+  }
+  .registrate{
+    width: 194px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: grey;
+    color: white;
+  }
+}
+button{
+  cursor: pointer;
+}
+
+button:hover {
+  &:active{
+    transform: scale(0.95);
+  }
+}
+
+.reserva-container{
+  margin: 50px 20px;
+  color: black;
+}
+:host ::ng-deep .custom-button .p-button {
+  width: 194px;
+  height: 48px;
+  border-radius: 8px;
+  background-color: black;
+  color: white;
+}
+
+:host ::ng-deep .registrate .p-button {
+  width: 194px;
+  height: 48px;
+  border-radius: 8px;
+  background-color: grey;
+  color: white;
+}
+

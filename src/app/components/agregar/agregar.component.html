@@ -1,0 +1,45 @@
+<div class="form-container">
+  <button mat-icon-button>
+    <mat-icon>close</mat-icon>
+  </button>
+  <mat-dialog-content>
+    <header>
+      <h1>Añadir nuevo restaurante</h1>
+    </header>
+    <form action="" [formGroup]="formRestaurant">
+      <p><mat-form-field>
+        <input matInput placeholder="Nombre" formControlName="name">
+        <mat-icon matSuffix>restaurant</mat-icon>
+      </mat-form-field></p>
+      <p><mat-form-field>
+        <input matInput placeholder="Descripción" formControlName="description">
+        <mat-icon matSuffix>description</mat-icon>
+      </mat-form-field></p>
+      <p><mat-form-field>
+        <input matInput placeholder="Dirección" formControlName="address">
+        <mat-icon matSuffix>edit_location</mat-icon>
+      </mat-form-field></p>
+      <p>
+        <mat-form-field>
+          <mat-label>Seleccione el tipo de cocina</mat-label>
+          <mat-select [(value)]="selected" formControlName="typeCousin">
+            <mat-option>None</mat-option>
+            <mat-option value="ITALIANA">ITALIANA</mat-option>
+            <mat-option value="MEXICANA">MEXICANA</mat-option>
+            <mat-option value="JAPONESA">JAPONESA</mat-option>
+            <mat-option value="VEGETARIANA">VEGETARIANA</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+
+      <p><mat-form-field>
+        <input matInput placeholder="Celular" formControlName="phone">
+        <mat-icon matSuffix>phone_android</mat-icon>
+      </mat-form-field></p>
+    </form>
+    <button mat-icon-button (click)="saveRestaurant()">
+      <mat-icon>save</mat-icon>
+    </button>
+  </mat-dialog-content>
+</div>
+

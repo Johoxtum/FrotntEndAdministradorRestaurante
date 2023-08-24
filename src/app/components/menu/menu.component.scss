@@ -1,0 +1,73 @@
+mat-toolbar{
+  background-color: #bebcbc;
+  color: black;
+}
+mat-sidenav-container{
+  height: calc(100vh - 65px);
+  background-color: white;
+}
+mat-sidenav{
+  margin: 16px;
+  width: 200px;
+  border-right: none;
+  background-color: #bebcbc;
+  color: black;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+
+.menu-button{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+  mat-icon,span,a{
+    margin-right: 8px;
+    color: black;
+  }
+}
+
+.content{
+  height: calc(100vh - 98px);
+  border-radius: 10px;
+  margin: 16px;
+  margin-left: 32px;
+  font-size: 2rem;
+
+}
+
+mat-divider{
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: white;
+}
+
+mat-sidenav-content{
+  height: calc(100vh - 65px);
+}
+
+h4{
+  font-weight: bold;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 40px;
+  color: black;
+}
+.content {
+  padding: 20px;
+
+  h2#title2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  app-table {
+    margin-top: 20px;
+  }
+}
+

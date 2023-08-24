@@ -1,0 +1,26 @@
+<div class="table-container">
+  <p-table [value]="restaurante" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Dirección</th>
+        <th>Categoria</th>
+        <th>Contacto</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-restaurante>
+      <tr>
+        <td>{{ restaurante.nombre }}</td>
+        <td>{{ restaurante.descripcion }}</td>
+        <td>{{ restaurante.direccion }}</td>
+        <td>{{ restaurante.tipo_cocina }}</td>
+        <td>{{ restaurante.celular }}</td>
+        <td><button pButton pRipple icon="pi pi-pencil"></button></td>
+        <td><button pButton pRipple icon="pi pi-trash"></button></td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

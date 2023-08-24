@@ -1,0 +1,152 @@
+@use "./../../../assets/styles/variables.scss";
+
+.registrate-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header {
+  background-color: grey;
+  padding: 80px 0;
+  color: variables.$color-principal;
+
+  @media (max-width: 768px) {
+    padding: 40px 0;
+  }
+}
+
+.title-container {
+  padding: 60px 2rem;
+  margin: -80px 2rem 0;
+
+  h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+    text-align: center;
+  }
+  p {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px; /* Añadir margen superior */
+  }
+
+  @media (max-width: 768px) {
+    padding: 40px 1rem;
+    margin: -40px 1rem 0;
+
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.icon-coffee {
+  padding: 60px 2rem;
+  display: flex;
+  position: absolute;
+  right: 0;
+  margin-left: 2rem;
+  width: 100%;
+  max-width: 323px;
+  height: 340px;
+  top: 50px;
+
+  @media (max-width: 768px) {
+    position: static;
+    margin-left: 0;
+    width: auto;
+    height: auto;
+  }
+}
+
+.button-container {
+  display: flex;
+  position: relative;
+  top: -60px;
+  justify-content: center;
+
+  .iniciar {
+    width: 194px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: black;
+    color: white;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
+}
+
+.formulario-container {
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  h2 {
+    font-size: 2rem;
+  }
+  p {
+    font-weight: bold;
+    font-size: 14px;
+    gap: 4px;
+  }
+
+  .input-name,
+  .input-lastname,
+  .input-email,
+  .input-password {
+    padding: 12px 8px;
+    border-radius: 6px;
+    width: 576px;
+    height: 20px;
+  }
+
+  .save {
+    padding: 12px 12px;
+    width: 160px;
+    height: 48px;
+    color: variables.$color-principal;
+    background-color: black;
+    border-radius: 8px;
+  }
+
+  @media (max-width: 768px) {
+    padding-top: 40px;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+button {
+  cursor: pointer;
+
+  &:hover {
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}
+
+.reserva-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrar horizontalmente */
+  justify-content: center; /* Centrar verticalmente */
+  padding: 60px 1rem;
+  margin: 50px 0;
+
+  @media (max-width: 768px) {
+    padding: 40px 1rem;
+    bottom: 0;
+    margin: 20px 0;
+  }
+}
+

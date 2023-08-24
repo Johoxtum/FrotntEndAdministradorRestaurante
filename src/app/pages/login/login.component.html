@@ -1,0 +1,41 @@
+<div id="container" class="container">
+  <header>
+    <div class="icon">
+      <img src="assets/img/iconLogin.svg" alt="icono para el login borde">
+    </div>
+    <div id="title-container">
+      <h1 class="title">Administrador de restaurante</h1>
+    </div>
+  </header>
+  <body>
+    <h2>Login</h2>
+    <p>Bienvenido a la página de administración de restaurantes</p>
+    <form class="login-container" [formGroup]="formLogin">
+      <img  class="logo" src="assets/img/person.svg" alt="Imagen con animacion">
+      <div class="input-text">
+        <input class="input-email" type="text" name="email" id="email" placeholder="Correo" formControlName="email">
+        <div *ngIf="email.invalid && (email.dirty || email.touched)"
+             class="text-danger">
+          <div *ngIf="email.errors?.['required']">
+            El email es requerido.
+          </div>
+          <div *ngIf="email.errors?.['email']">
+            Email no valido.
+          </div>
+        </div>
+        <div *ngIf="password.invalid && (password.dirty || password.touched)"
+             class="text-danger">
+          <div *ngIf="password.errors?.['required']">
+            La contraseña es requerido.
+          </div>
+        </div>
+        <input class="input-password" type="password" name="password" id="password" placeholder="Contraseña" formControlName="password">
+      </div>
+      <div class="button-container">
+        <p-button label="Iniciar Sesión" [loading]="loading" (click)="loginUser()" class="custom-button"></p-button>
+        <p-button label="Registrate" [loading]="loading1" class="custom-button" (click)="register()"></p-button>
+      </div>
+    </form>
+  </body>
+  <p class="reserva-container">© 2023 Admin Dashboard. Todos los derechos reservados.</p>
+</div>

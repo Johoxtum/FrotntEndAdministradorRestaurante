@@ -1,0 +1,43 @@
+<div class="form-container">
+  <button mat-icon-button>
+    <mat-icon>close</mat-icon>
+  </button>
+  <mat-dialog-content>
+    <header>
+      <h1>Actualizar restaurante</h1>
+    </header>
+    <p><mat-form-field>
+      <input matInput placeholder="Nombre">
+      <mat-icon matSuffix>restaurant</mat-icon>
+    </mat-form-field></p>
+    <p><mat-form-field>
+      <input matInput placeholder="Descripción">
+      <mat-icon matSuffix>description</mat-icon>
+    </mat-form-field></p>
+    <p><mat-form-field>
+      <input matInput placeholder="Dirección">
+      <mat-icon matSuffix>edit_location</mat-icon>
+    </mat-form-field></p>
+    <p>
+      <mat-form-field>
+        <mat-label>Seleccione el tipo de cocina</mat-label>
+        <mat-select [(value)]="selected">
+          <mat-option>None</mat-option>
+          <mat-option value="option1">ITALIANA</mat-option>
+          <mat-option value="option2">MEXICANA</mat-option>
+          <mat-option value="option3">JAPONESA</mat-option>
+          <mat-option value="option4">VEGETARIANA</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+
+    <p><mat-form-field>
+      <input matInput placeholder="Celular">
+      <mat-icon matSuffix>phone_android</mat-icon>
+    </mat-form-field></p>
+    <button mat-icon-button>
+      <mat-icon>save</mat-icon>
+    </button>
+  </mat-dialog-content>
+</div>
+
