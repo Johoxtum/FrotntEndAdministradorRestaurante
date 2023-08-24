@@ -1,27 +1,29 @@
-# AdministradorRestaurante
+# Administrador de restaurante FrontEnd 🍽️🚀
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+¡Bienvenido al FrontEnd de RestaurantSprint! Esta es la interfaz construida en Angular para el Administrador de Restaurantes.
 
-## Development server
+## Características 🖥️
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Visualiza y gestiona los restaurantes 🍔🍕
+- Administra tus restaurantes 📝✅
+- Interfaz amigable y responsive para una experiencia fluida 📱💻
+- Comunicación en tiempo real con el backend mediante APIs ⚡🔌
 
-## Code scaffolding
+## Requisitos Previos 🛠️
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Node.js y Angular CLI instalados globalmente 📦🌐
 
-## Build
+## Instrucciones de Uso 📖
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Clona este repositorio: `git clone https://github.com/tu_usuario/RestaurantSprint.git`
+2. Navega a la carpeta del FrontEnd: `cd RestaurantSprint/frontend`
+3. Instala las dependencias: `npm install`
+4. Inicia el servidor de desarrollo de Angular: `ng serve`
+5. Abre tu navegador y accede a: `http://localhost:4200`
 
-## Running unit tests
+## Configuración de Conexión 🔗
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Asegúrate de que el backend esté funcionando y configurado correctamente.
+2. Actualiza las URLs de las APIs en los archivos relevantes.
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
