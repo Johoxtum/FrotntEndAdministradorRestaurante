@@ -14,7 +14,6 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatListModule} from "@angular/material/list";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from '@angular/material/icon';
-import {AgregarComponent } from './components/agregar/agregar.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from '@angular/material/select';
@@ -22,6 +21,7 @@ import { ActualizarComponent } from './components/actualizar/actualizar.componen
 import { TableModule } from 'primeng/table';
 import { TableComponent } from './components/table/table.component';
 import { ButtonModule } from 'primeng/button';
+import {DialogModule} from "primeng/dialog";
 
 @NgModule({
   declarations: [
@@ -30,7 +30,6 @@ import { ButtonModule } from 'primeng/button';
     LoginComponent,
     RegistrateComponent,
     MenuComponent,
-    AgregarComponent,
     ActualizarComponent,
     TableComponent,
 
@@ -51,7 +50,8 @@ import { ButtonModule } from 'primeng/button';
     MatInputModule,
     MatSelectModule,
     TableModule,
-    ButtonModule
+    ButtonModule,
+    DialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

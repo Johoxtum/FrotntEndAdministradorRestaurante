@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Restaurant} from "../models/restaurant";
 import {registerModel} from "../models/register";
+import {AbstractControl} from "@angular/forms";
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +19,18 @@ export class RestaurantService {
   getRestaurantes(){
     return this.http.get<Restaurant[]>(this.rutaGlobal)
   }
+
+  updateRestaurant(id:number, res: Restaurant){
+    return this.http.patch<Restaurant>(this.rutaGlobal + `update/` + id, res, {
+      observe: 'response'
+    })
+  }
+  deleteRestaurant(id:number){
+    return this.http.delete<Restaurant>(this.rutaGlobal + 'delete/' + id,{
+      observe: 'response'
+    })
+  }
+
+
 
 }

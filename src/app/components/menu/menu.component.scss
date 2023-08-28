@@ -70,4 +70,46 @@ h2 {
     margin-top: 20px;
   }
 }
+.form-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  button[mat-icon-button] {
+    margin-left: auto;
+    margin-top: 5px; /* Ajusta el margen superior para separar del título */
+    margin-right: 10px; /* Añade un margen derecho para separar del borde del contenedor */
+    align-self: flex-end; /* Ubica el botón al final del contenedor */
+    mat-icon {
 
+    }
+  }
+
+  mat-dialog-content {
+    text-align: center;
+    header {
+      h1 {
+
+      }
+    }
+
+    p {
+      mat-form-field {
+        display: block;
+        input, mat-select {
+        }
+
+        mat-icon {
+          color: white;
+        }
+      }
+    }
+
+    button[mat-icon-button] {
+      transform: translateX(-50%);
+      mat-icon {
+        color: green;
+      }
+
+    }
+  }
+}

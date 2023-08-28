@@ -18,9 +18,50 @@
         <td>{{ restaurante.direccion }}</td>
         <td>{{ restaurante.tipo_cocina }}</td>
         <td>{{ restaurante.celular }}</td>
-        <td><button pButton pRipple icon="pi pi-pencil"></button></td>
-        <td><button pButton pRipple icon="pi pi-trash"></button></td>
+        <td><button pButton pRipple icon="pi pi-pencil" (click)="activar(restaurante)"></button></td>
+        <td><button pButton pRipple icon="pi pi-trash" (click)="deleteRestaurante(restaurante.id)"></button></td>
       </tr>
     </ng-template>
   </p-table>
+  <p-dialog header="Actualizar restaurante" [(visible)]="display" >
+    <div class="form-container" >
+      <mat-dialog-content >
+        <form [formGroup]="formularioRestaurante" >
+          <p><mat-form-field >
+            <input matInput placeholder="Nombre" formControlName="name">
+            <mat-icon matSuffix>restaurant</mat-icon>
+          </mat-form-field></p>
+          <p><mat-form-field>
+            <input matInput placeholder="Descripción" formControlName="description">
+            <mat-icon matSuffix>description</mat-icon>
+          </mat-form-field></p>
+          <p><mat-form-field>
+            <input matInput placeholder="Dirección" formControlName="address">
+            <mat-icon matSuffix>edit_location</mat-icon>
+          </mat-form-field></p>
+          <p>
+            <mat-form-field>
+              <mat-label>Seleccione el tipo de cocina</mat-label >
+              <mat-select [(value)]="selected" formControlName="typeCousin">
+                <mat-option>None</mat-option>
+                <mat-option value="ITALIANA">ITALIANA</mat-option>
+                <mat-option value="MEXICANA">MEXICANA</mat-option>
+                <mat-option value="JAPONESA">JAPONESA</mat-option>
+                <mat-option value="VEGETARIANA">VEGETARIANA</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </p>
+          <p><mat-form-field>
+            <input matInput placeholder="Celular" formControlName="phone">
+            <mat-icon matSuffix>phone_android</mat-icon>
+          </mat-form-field></p>
+
+        </form>
+        <button mat-icon-button (click)="selectedRestaurantId && updateRestaurant(selectedRestaurantId)">
+          <mat-icon>update</mat-icon>
+        </button>
+
+      </mat-dialog-content>
+    </div>
+  </p-dialog>
 </div>

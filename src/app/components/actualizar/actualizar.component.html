@@ -6,22 +6,23 @@
     <header>
       <h1>Actualizar restaurante</h1>
     </header>
+    <form action=""  [formGroup]="formRestaurant">
     <p><mat-form-field>
-      <input matInput placeholder="Nombre">
+      <input matInput placeholder="Nombre" formControlName="name">
       <mat-icon matSuffix>restaurant</mat-icon>
     </mat-form-field></p>
     <p><mat-form-field>
-      <input matInput placeholder="Descripción">
+      <input matInput placeholder="Descripción" formControlName="description">
       <mat-icon matSuffix>description</mat-icon>
     </mat-form-field></p>
     <p><mat-form-field>
-      <input matInput placeholder="Dirección">
+      <input matInput placeholder="Dirección" formControlName="address">
       <mat-icon matSuffix>edit_location</mat-icon>
     </mat-form-field></p>
     <p>
       <mat-form-field>
-        <mat-label>Seleccione el tipo de cocina</mat-label>
-        <mat-select [(value)]="selected">
+        <mat-label>Seleccione el tipo de cocina</mat-label >
+        <mat-select [(value)]="selected" formControlName="typeCousin">
           <mat-option>None</mat-option>
           <mat-option value="option1">ITALIANA</mat-option>
           <mat-option value="option2">MEXICANA</mat-option>
@@ -35,6 +36,7 @@
       <input matInput placeholder="Celular">
       <mat-icon matSuffix>phone_android</mat-icon>
     </mat-form-field></p>
+    </form>
     <button mat-icon-button>
       <mat-icon>save</mat-icon>
     </button>
