@@ -2,11 +2,12 @@ import {ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
 import {MatSidenav} from "@angular/material/sidenav";
 import {BreakpointObserver} from "@angular/cdk/layout";
 import {MatDialog} from "@angular/material/dialog";
-import {ActualizarComponent} from "../actualizar/actualizar.component";
 import {RestaurantService} from "../../services/restaurant.service";
 import {Restaurant} from "../../models/restaurant";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import {Message} from "primeng/api";
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -18,6 +19,7 @@ export class MenuComponent implements OnInit{
   formRestaurant: FormGroup
   selected = 'none'
   display: boolean = false;
+  messages: Message[] = [];
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
 
@@ -46,12 +48,6 @@ export class MenuComponent implements OnInit{
   ngOnInit(): void {
 
   }
-  openDialog1(){
-    this.matDialog.open(ActualizarComponent,{
-      width:'400px'
-    })
-  }
-
   saveRestaurant(){
     if (this.formRestaurant.valid){
       let restaurant = new Restaurant()
@@ -60,9 +56,11 @@ export class MenuComponent implements OnInit{
       restaurant.direccion = this.formRestaurant.get('address')?.value
       restaurant.tipo_cocina = this.formRestaurant.get('typeCousin')?.value
       restaurant.celular = this.formRestaurant.get('phone')?.value
-      this.restaurantService.createRestaurant(restaurant).subscribe(res =>{
-        console.log(res)
+      this.restaurantService.createRestaurant(restaurant).subscribe( res =>{
+        this.messageAdd()
         this.formRestaurant.reset()
+        this.restaurantService.notifyRestaurantUpdate()
+        this.display = !this.display
       })
     }
   }
@@ -74,4 +72,19 @@ export class MenuComponent implements OnInit{
   salir(){
     this.router.navigate(['/login'])
   }
+
+  messageAdd(){
+    this.messages = [
+      { severity: 'success', summary: 'Success', detail: 'El restaurante se ha creado correctamente' },
+    ];
+    setTimeout(() => {
+      this.messages = [];
+    }, 3000);
+  }
+  getRestaurantes(){
+    this.restaurantService.getRestaurantes().subscribe(res =>{
+      this.restaurante = res
+    })
+  }
+
 }

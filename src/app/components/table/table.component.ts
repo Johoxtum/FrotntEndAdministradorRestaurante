@@ -2,7 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Restaurant} from "../../models/restaurant";
 import {AbstractControl, FormBuilder, FormControl, FormGroup, NgForm, Validators} from "@angular/forms";
 import {RestaurantService} from "../../services/restaurant.service";
-import {catchError, of} from "rxjs";
+import {catchError, of, Subscription} from "rxjs";
+import {Message} from "primeng/api";
 
 @Component({
   selector: 'app-table',
@@ -15,7 +16,10 @@ export class TableComponent implements OnInit{
   restaurante : Array<Restaurant>
   formularioRestaurante: FormGroup;
   selected = 'none'
+  messages: Message[] = [];
+  messages1: Message[] = [];
   selectedRestaurantId: number | null;
+  private restaurantUpdateSubscription: Subscription;
   constructor(private fb:FormBuilder, private restaurantService:RestaurantService) {
     this.restaurante = new Array<Restaurant>()
 
@@ -25,6 +29,9 @@ export class TableComponent implements OnInit{
       address : new FormControl('',[Validators.required]),
       typeCousin : new FormControl('',[Validators.required]),
       phone : new FormControl('',[Validators.required]),
+    })
+    this.restaurantUpdateSubscription = this.restaurantService.onRestaurantUpdate().subscribe(()=>{
+      this.getRestaurantes()
     })
   }
 
@@ -37,9 +44,13 @@ export class TableComponent implements OnInit{
   ngOnInit(): void {
     this.getRestaurantes()
   }
+  ngOnDestroy() {
+    this.restaurantUpdateSubscription.unsubscribe();
+  }
 
   deleteRestaurante(idRestaurant:number){
     this.restaurantService.deleteRestaurant(idRestaurant).subscribe(res =>{
+      this.messageDelete()
       this.getRestaurantes()
     })
   }
@@ -69,11 +80,26 @@ export class TableComponent implements OnInit{
     restaurant.celular = this.formularioRestaurante.get('phone')?.value
     this.restaurantService.updateRestaurant(idRestaurant,restaurant).subscribe(res =>{
       this.getRestaurantes()
+      this.messageUpdate()
       this.formularioRestaurante.reset()
       this.display = !this.display
     })
   }
-
-
+  messageDelete(){
+    this.messages = [
+      { severity: 'success', summary: 'Success', detail: 'El restaurante se ha eliminado correctamente' },
+    ];
+    setTimeout(() => {
+      this.messages = [];
+    }, 3000);
+  }
+  messageUpdate(){
+    this.messages1 = [
+      { severity: 'success', summary: 'Success', detail: 'El restaurante se ha actualizado correctamente.' },
+    ];
+    setTimeout(() => {
+      this.messages1 = [];
+    }, 3000);
+  }
 
 }

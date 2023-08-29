@@ -106,3 +106,14 @@ button:hover {
   color: white;
 }
 
+#messageError{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#successMessage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

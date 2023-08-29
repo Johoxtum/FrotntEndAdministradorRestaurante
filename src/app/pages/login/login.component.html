@@ -32,8 +32,14 @@
         <input class="input-password" type="password" name="password" id="password" placeholder="Contraseña" formControlName="password">
       </div>
       <div class="button-container">
-        <p-button label="Iniciar Sesión" [loading]="loading" (click)="loginUser()" class="custom-button"></p-button>
-        <p-button label="Registrate" [loading]="loading1" class="custom-button" (click)="register()"></p-button>
+        <p-button label="Iniciar Sesión" [loading]="loading" (click)="loginUser()" class="custom-button" id="iniciar-sesion"></p-button>
+        <p-button label="Registrate"  class="custom-button" (click)="register()" id="registro"></p-button>
+      </div>
+      <div class="flex justify-content-center gap-2" id="messageError">
+        <p-messages [(value)]="messages1" [enableService]="false" [closable]="true" id="message-error"></p-messages>
+      </div>
+      <div class="flex justify-content-center gap-2" id="successMessage">
+        <p-messages [(value)]="messageSuccess" [enableService]="false" [closable]="false"></p-messages>
       </div>
     </form>
   </body>

@@ -23,7 +23,7 @@
             <mat-icon>add_box</mat-icon>
             <span>Añadir</span>
         </button>
-        <button mat-button class="menu-button" (click)="openDialog1()">
+        <button mat-button class="menu-button">
             <mat-icon>update</mat-icon>
             <span>Actualizar</span>
         </button>
@@ -38,6 +38,9 @@
         </button>
     </mat-sidenav>
     <mat-sidenav-content>
+      <div class="flex justify-content-center gap-2" id="addMessage" >
+        <p-messages [(value)]="messages" [enableService]="false" [closable]="false"></p-messages>
+      </div>
         <div class="content mat-elevation-z8">
           <h2 id="title2">Lista de restaurantes</h2>
           <app-table></app-table>

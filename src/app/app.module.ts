@@ -22,6 +22,9 @@ import { TableModule } from 'primeng/table';
 import { TableComponent } from './components/table/table.component';
 import { ButtonModule } from 'primeng/button';
 import {DialogModule} from "primeng/dialog";
+import {CardModule} from "primeng/card";
+import { MessagesModule } from 'primeng/messages';
+import {MessageModule} from "primeng/message";
 
 @NgModule({
   declarations: [
@@ -51,7 +54,10 @@ import {DialogModule} from "primeng/dialog";
     MatSelectModule,
     TableModule,
     ButtonModule,
-    DialogModule
+    DialogModule,
+    CardModule,
+    MessagesModule,
+    MessageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

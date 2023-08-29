@@ -149,4 +149,12 @@ button {
     margin: 20px 0;
   }
 }
+:host ::ng-deep .save-input .p-button{
+  width: 194px;
+  height: 48px;
+  border-radius: 8px;
+  background-color: black;
+  color: white;
+}
+
 

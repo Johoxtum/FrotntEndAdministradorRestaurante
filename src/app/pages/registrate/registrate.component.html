@@ -12,29 +12,30 @@
     </div>
   </header>
   <body>
-    <form action="" class="formulario-container" [formGroup]="formUser">
-      <h2>Información personal</h2>
-      <div class="name-input">
-        <p>Nombre</p>
-        <input class="input-name" type="text" name="email" id="name" placeholder="Ingese su nombre" formControlName="name">
-      </div>
-      <div class="lastname-input">
-        <p>Apellido</p>
-        <input class="input-lastname" type="text" name="email" id="lastname" placeholder="Ingese su apellido" formControlName="lastname">
-      </div>
-      <div class="email-input">
-        <p>Correo</p>
-        <input class="input-email" type="text" name="email" id="email" placeholder="Ingese su correo electrónico" formControlName="email">
-      </div>
-      <div class="password-input">
-        <p>Contraseña</p>
-        <input class="input-password" type="password" name="email" id="password" placeholder="Ingese su contraseña" formControlName="password">
-      </div>
-      <div class="save-input">
-        <button class="save"(click)="saveUser()">Guardar</button>
-      </div>
-
-    </form>
+    <p-card styleClass="form" class="flex justify-content-center">
+      <form action="" class="formulario-container" [formGroup]="formUser">
+        <h2>Información personal</h2>
+        <div class="name-input">
+          <p>Nombre</p>
+          <input class="input-name" type="text" name="email" id="name" placeholder="Ingese su nombre" formControlName="name">
+        </div>
+        <div class="lastname-input">
+          <p>Apellido</p>
+          <input class="input-lastname" type="text" name="email" id="lastname" placeholder="Ingese su apellido" formControlName="lastname">
+        </div>
+        <div class="email-input">
+          <p>Correo</p>
+          <input class="input-email" type="text" name="email" id="email" placeholder="Ingese su correo electrónico" formControlName="email">
+        </div>
+        <div class="password-input">
+          <p>Contraseña</p>
+          <input class="input-password" type="password" name="email" id="password" placeholder="Ingese su contraseña" formControlName="password">
+        </div>
+        <div class="save-input">
+          <p-button label="Guardar" [loading]="loading" (click)="saveUser()" class="custom-button"></p-button>
+        </div>
+      </form>
+    </p-card>
   </body>
   <p class="reserva-container" >© 2023 Todos los derechos reservados.</p>
 </div>

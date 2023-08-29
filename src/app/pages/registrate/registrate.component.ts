@@ -13,7 +13,7 @@ import {Router} from "@angular/router";
 export class RegistrateComponent {
 
   user : Array<registerModel>
-
+  loading: boolean = false;
   formUser: FormGroup
 
   constructor(private fb:FormBuilder , private userService:AdminService, private router:Router) {
@@ -34,6 +34,7 @@ export class RegistrateComponent {
       user.contrasena = this.formUser.get('password')?.value
       this.userService.createUser(user).subscribe(res =>{
         this.formUser.reset()
+        this.load()
         this.showPopup('Registro exitoso!');
         setTimeout(() => {
           this.router.navigate(['/login']);
@@ -81,5 +82,12 @@ export class RegistrateComponent {
   }
   loginPage(){
     this.router.navigate(['/login'])
+  }
+  load() {
+    this.loading = true;
+
+    setTimeout(() => {
+      this.loading = false
+    }, 3000);
   }
 }
