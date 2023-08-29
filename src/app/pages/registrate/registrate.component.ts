@@ -27,7 +27,6 @@ export class RegistrateComponent {
     })
   }
   // Crear usuario
-
   saveUser(){
     if (this.formUser.valid){
       let user = new registerModel()
