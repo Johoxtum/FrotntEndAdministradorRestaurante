@@ -3,6 +3,8 @@ import {FormGroup, FormBuilder, Validators, FormControl} from "@angular/forms";
 import {registerModel} from "../../models/register";
 import {AdminService} from "../../services/admin.service";
 import {Router} from "@angular/router";
+import {catchError, tap, throwError} from "rxjs";
+
 
 
 @Component({
@@ -25,6 +27,7 @@ export class RegistrateComponent {
     })
   }
   // Crear usuario
+
   saveUser(){
     if (this.formUser.valid){
       let user = new registerModel()
@@ -32,16 +35,27 @@ export class RegistrateComponent {
       user.apellido = this.formUser.get('lastname')?.value
       user.email = this.formUser.get('email')?.value
       user.contrasena = this.formUser.get('password')?.value
-      this.userService.createUser(user).subscribe(res =>{
-        this.formUser.reset()
-        this.load()
-        this.showPopup('Registro exitoso!');
-        setTimeout(() => {
-          this.router.navigate(['/login']);
-        }, 3000);
-      })
-    } else {
-      this.showPopup('Error en el registro')
+      this.userService.createUser(user).pipe(
+        tap(res =>{
+          this.formUser.reset()
+          this.load()
+          this.showPopup('Registro exitoso!');
+          setTimeout(() => {
+            this.router.navigate(['/login']);
+          }, 3000);
+        }),
+        catchError(error => {
+          if (error.status === 500) {
+            this.showPopup('El correo ingresado ya existe');
+            console.log('Error 409: Conflict');
+          } else {
+            console.error('Otro error:', error);
+          }
+          return throwError(error); // Re-lanza el error
+        })
+      ).subscribe();
+    } else if (this.formUser.invalid) {
+      this.showPopup('Todos los campos son obligatorios')
     }
   }
   showPopup(message: string) {
